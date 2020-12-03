@@ -1,5 +1,7 @@
-import styles from './search_header.module.css';
-import React, { memo, useRef } from 'react';
+import styles from "./search_header.module.css";
+import React, { memo, useRef } from "react";
+import search from "./images/search.png";
+import logo from "./images/logo.png";
 
 const SearchHeader = memo(({ onSearch }) => {
   const inputRef = useRef();
@@ -11,15 +13,15 @@ const SearchHeader = memo(({ onSearch }) => {
     handleSearch();
   };
 
-  const onKeyPress = event => {
-    if (event.key === 'Enter') {
+  const onKeyPress = (event) => {
+    if (event.key === "Enter") {
       handleSearch();
     }
   };
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <img className={styles.img} src="/images/logo.png" alt="logo" />
+        <img className={styles.img} src={logo} alt="logo" />
         <h1 className={styles.title}>Youtube</h1>
       </div>
       <input
@@ -30,11 +32,7 @@ const SearchHeader = memo(({ onSearch }) => {
         onKeyPress={onKeyPress}
       />
       <button className={styles.button} type="submit" onClick={onClick}>
-        <img
-          className={styles.buttonImg}
-          src="/images/search.png"
-          alt="search"
-        />
+        <img className={styles.buttonImg} src={search} alt="search" />
       </button>
     </header>
   );
